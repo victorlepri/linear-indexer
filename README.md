@@ -1,6 +1,6 @@
 # 🧭 Linear Project Indexer
 
-Automatically index and rename Linear projects based on initiative codes like `TEST1`, `TEST2`, etc.
+Automatically index and rename Linear projects based on initiative codes like `INITIATIVE1`, `INITIATIVE2`, etc.
 
 This script fetches projects from Linear, assigns the next available number for each initiative, renames the project accordingly, and logs metadata in a local JSON database.
 
@@ -9,7 +9,7 @@ This script fetches projects from Linear, assigns the next available number for 
 ## ✨ Features
 
 - ✅ Automatically detects and renames projects missing index numbers
-- 📈 Maintains independent counters per initiative (e.g. `TEST1-001`, `TEST2-001`)
+- 📈 Maintains independent counters per initiative (e.g. `INITIATIVE1-001`, `INITIATIVE2-001`)
 - 🗃 Appends a structured log of all renamed projects to `project_database.json`
 - 🧠 Tracks initiative, index, name, creation date, creator name and email (based on Linear data only)
 - ⚡ Simple to configure and run locally
@@ -57,13 +57,13 @@ Generate a token from [Linear's API settings](https://linear.app/settings/api).
 In the `initiatives.py` file, list the initiative prefixes you want to track:
 
 ```python
-INITIATIVES = ["TEST1", "TEST2"]
+INITIATIVES = ["INITIATIVE1", "INITIATIVE2"]
 ```
 
 Each initiative will maintain its own index sequence.
 
 > **Important:** For this script to properly detect and index your projects, the project name in Linear **must begin with the initiative prefix**, such as `TEST1`, `TEST2`, etc.  
-> Example: `TEST1 - Add EVM support` or `TEST2 - Revamp onboarding`
+> Example: `INITIATIVE1 - Add EVM support` or `INITIATIVE2 - Revamp onboarding`
 
 ---
 
@@ -90,13 +90,13 @@ What it does:
 A project titled:
 
 ```
-TEST1 - Auto Indexer
+INITIATIVE1 - Auto Indexer
 ```
 
 Will be renamed to:
 
 ```
-TEST1-003 Auto Indexer
+INITITATIVE1-003 Auto Indexer
 ```
 
 ---
@@ -107,9 +107,9 @@ Appends structured data to `project_database.json`:
 
 ```json
 {
-  "initiative": "TEST1",
+  "initiative": "INITIATIVE1",
   "index": "003",
-  "name": "TEST1-003 Auto Indexer",
+  "name": "INITIATIVE1-003 Auto Indexer",
   "createdAt": "2025-04-25T14:00:00Z",
   "createdBy": "Victor Lepri",
   "createdByEmail": "victor@example.com"
@@ -138,7 +138,7 @@ As of now, Linear's public API does not support fetching or assigning initiative
 
 To work around this:
 - We use a naming convention to simulate initiative tracking.
-- Initiatives like `TEST1`, `TEST2`, etc. are hard-coded in the `initiatives.py` file.
+- Initiatives like `INITIATIVE1`, `INITIATIVE2`, etc. are hard-coded in the `initiatives.py` file.
 - The script looks for project names that begin with these initiative codes and applies indexing logic accordingly.
 
 Once Linear releases initiative support in their API, this logic can be updated to fetch and assign real initiatives dynamically.
