@@ -62,7 +62,7 @@ INITIATIVES = ["INITIATIVE1", "INITIATIVE2"]
 
 Each initiative will maintain its own index sequence.
 
-> **Important:** For this script to properly detect and index your projects, the project name in Linear **must begin with the initiative prefix**, such as `TEST1`, `TEST2`, etc.  
+> **Important:** For this script to properly detect and index your projects, the project name in Linear **must begin with the initiative prefix**, such as `INITIATIVE1`, `INITIATIVE2`, etc.  
 > Example: `INITIATIVE1 - Add EVM support` or `INITIATIVE2 - Revamp onboarding`
 
 ---
