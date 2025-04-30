@@ -1,4 +1,4 @@
-# 🧭 Linear Project Indexer
+# Linear Project Indexer
 
 Automatically index and rename Linear projects based on initiative codes like `INITIATIVE1`, `INITIATIVE2`, etc.
 
@@ -6,23 +6,23 @@ This script fetches projects from Linear, assigns the next available number for 
 
 ---
 
-## ✨ Features
+## Features
 
-- ✅ Automatically detects and renames projects missing index numbers
-- 📈 Maintains independent counters per initiative (e.g. `INITIATIVE1-001`, `INITIATIVE2-001`)
-- 🗃 Appends a structured log of all renamed projects to `project_database.json`
-- 🧠 Tracks initiative, index, name, creation date, creator name and email (based on Linear data only)
-- ⚡ Simple to configure and run locally
+- Automatically detects and renames projects missing index numbers
+- Maintains independent counters per initiative (e.g. `INITIATIVE1-001`, `INITIATIVE2-001`)
+- Appends a structured log of all renamed projects to `project_database.json`
+- Tracks initiative, index, name, creation date, creator name and email (based on Linear data only)
+- Simple to configure and run locally
 
 ---
 
-## 🔧 Setup
+## Setup
 
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/victorlepri/linear-indexing.git
-cd linear-indexing
+git clone [repository-url]
+cd [repository-directory]
 ```
 
 ### 2. Install dependencies
@@ -35,7 +35,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-> If `requirements.txt` doesn't exist, install manually:
+If `requirements.txt` doesn't exist, install manually:
 ```bash
 pip install requests python-dotenv
 ```
@@ -52,7 +52,7 @@ Generate a token from [Linear's API settings](https://linear.app/settings/api).
 
 ---
 
-## 🧭 Configure Initiatives
+## Configure Initiatives
 
 In the `initiatives.py` file, list the initiative prefixes you want to track:
 
@@ -62,12 +62,12 @@ INITIATIVES = ["INITIATIVE1", "INITIATIVE2"]
 
 Each initiative will maintain its own index sequence.
 
-> **Important:** For this script to properly detect and index your projects, the project name in Linear **must begin with the initiative prefix**, such as `INITIATIVE1`, `INITIATIVE2`, etc.  
-> Example: `INITIATIVE1 - Add EVM support` or `INITIATIVE2 - Revamp onboarding`
+**Important:** For this script to properly detect and index your projects, the project name in Linear **must begin with the initiative prefix**, such as `INITIATIVE1`, `INITIATIVE2`, etc.  
+Example: `INITIATIVE1 - Add EVM support` or `INITIATIVE2 - Revamp onboarding`
 
 ---
 
-## 🚀 Running the Script
+## Running the Script
 
 ```bash
 python generate_index.py
@@ -81,11 +81,11 @@ What it does:
 - Calculates the next number using current projects in Linear, regardless of what's in the database
 - Appends renamed project metadata to `project_database.json`
 
-> Note: The script silently appends to the local database without printing to console unless an error occurs.
+Note: The script silently appends to the local database without printing to console unless an error occurs.
 
 ---
 
-## 🧾 Example Rename
+## Example Rename
 
 A project titled:
 
@@ -101,7 +101,7 @@ INITITATIVE1-003 Auto Indexer
 
 ---
 
-## 🗃 Output
+## Output
 
 Appends structured data to `project_database.json`:
 
@@ -118,7 +118,7 @@ Appends structured data to `project_database.json`:
 
 ---
 
-## 📦 Git Ignore
+## Git Ignore
 
 Your `.gitignore` should include:
 
@@ -132,7 +132,7 @@ project_database.json
 
 ---
 
-## ℹ️ Note on Initiatives
+## Note on Initiatives
 
 As of now, Linear's public API does not support fetching or assigning initiatives programmatically.
 
